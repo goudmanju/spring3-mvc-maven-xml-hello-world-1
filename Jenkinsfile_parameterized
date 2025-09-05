@@ -9,22 +9,22 @@ pipeline {
     }
 
     tools {
-        maven 'Maven_3.9.4' // Make sure this matches your Jenkins Maven tool name
+        maven 'maven' // Make sure this matches your Jenkins Maven tool name
     }
 
     environment {
         NEXUS_VERSION = "nexus3"
         NEXUS_PROTOCOL = "http"
-        NEXUS_URL = "13.218.210.63:8081"
-        NEXUS_REPOSITORY = "Nexus_repo" // Update if you're pushing to a different repo
-        NEXUS_CREDENTIAL_ID = "Nexus_server"
+        NEXUS_URL = "54.198.202.119:8081"
+        NEXUS_REPOSITORY = "manju-snapshot" // Update if you're pushing to a different repo
+        NEXUS_CREDENTIAL_ID = "nexus"
     }
 
     stages {
 
         stage("Clone Code") {
             steps {
-                git branch: "${params.BRANCH}", url: 'https://github.com/sripriya7-ande/spring3-mvc-maven-xml-hello-world-1.git'
+                git branch: "${params.BRANCH}", url: 'https://github.com/goudmanju/spring3-mvc-maven-xml-hello-world-1.git'
             }
         }
 
@@ -42,7 +42,7 @@ pipeline {
                 expression { return params.run_sonar }
             }
             steps {
-                withSonarQubeEnv('sonarqube') { // Must match Jenkins Global Tool Configuration
+                withSonarQubeEnv('sonar-server') { // Must match Jenkins Global Tool Configuration
                     sh 'mvn sonar:sonar'
                 }
             }
