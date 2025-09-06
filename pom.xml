@@ -88,15 +88,13 @@
     </repositories>
     <!-- Nexus Deployment (replace with your Nexus URL) -->
     <distributionManagement>
-        <repository>
-            <id>nexus</id>
-            <name>Nexus Release Repository</name>
-            <url>http://nexus.yourcompany.com:8081/repository/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus</id>
-            <name>Nexus Snapshot Repository</name>
-            <url>http://nexus.yourcompany.com:8081/repository/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <repository> 
+      <id>manju-snapshot</id> 
+      <url>http://54.226.192.120:8081/repository/manju-snapshot/</url> 
+    </repository> 
+    <snapshotRepository> 
+      <id>manju-snapshot</id> 
+      <url>http://54.226.192.120:8081/repository/manju-snapshot/</url> 
+    </snapshotRepository> 
+  </distributionManagement> 
 </project>
